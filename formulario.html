@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estiloformulario.css">
+</head>
+<body>
+    <div class="container">
+        <header id="topo">
+            <figure class="logo">
+                <a href=""><img src="logo.png" alt="logo"></a>
+                <p>Delicias do Bairro</p>
+            </figure>
+            <nav class="menu">
+                <ul>
+                    <li><a href="deliciasdobairro.html">Home</a></li>
+                    <li><a href="cardapio.html">Cardápio</a></li>
+                    <li><a href="formulario.html">Peça o seu prato</a></li>
+                </ul>
+            </nav>
+        </header>
+        <article id="formulario">
+            <h1>Peça o seu prato</h1><br>
+            <div class="formulario">
+                <form action="">
+                    <div>
+                        <label for="">Nome:</label><br>
+                        <input type="text" name="" id="nome"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Email:</label><br>
+                        <input type="email" name="" id="email"><br><br>
+                    </div>
+                    <div>
+                        <label for="">CPF:</label><br>
+                        <input type="text" name="" id="cpf" data-mask="999.999.999-99"><br><br>
+                    </div>
+                    <div>
+                        <label>Cep:
+                            <input name="cep" type="text" id="cep" data-mask="99.999-999" value="" size="10" maxlength="10"
+                                   onblur="pesquisacep(this.value);" /></label><br><br>
+                    </div>
+                    <div>
+                        <label for="">Rua:</label><br>
+                        <input type="text" name="" id="rua"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Bairro:</label><br>
+                        <input type="text" name="" id="bairro"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Número:</label><br>
+                        <input type="text" name="" id="numero"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Cidade:</label><br>
+                        <input type="text" name="" id="cidade"><br><br>
+                    </div>
+                    <div>
+                        <label for="">UF:</label><br>
+                        <input type="text" name="" id="uf"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Complemento:</label><br>
+                        <input type="text" name="" id="complemento"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Telefone com ddd:</label><br>
+                        <input type="text" name="" id="telefone" data-mask="(99)99999-9999"><br><br>
+                    </div>
+                    <div>
+                        <label for="">Prato do dia:</label><br>
+                        <select name="select" id="prato">
+                            <option value="" selected></option>
+                            <option value="Prato1">Prato1</option>
+                            <option value="Prato2">Prato2</option>
+                            <option value="Prato3">Prato3</option>
+                            <option value="Prato4">Prato4</option>
+                            <option value="Prato5">Prato5</option>
+                            <option value="Prato6">Prato6</option>
+                            <option value="Prato7">Prato7</option>
+                            <option value="Prato8">Prato8</option>
+                            <option value="Prato9">Prato9</option>
+                            <option value="Prato10">Prato10</option>
+                            <option value="Prato11">Prato11</option>
+                            <option value="Prato11">Prato12</option>
+                        </select><br><br>
+                    </div>
+                    <div id="aviso"></div><br>
+                    <div>
+                        <label for="">Mensagem:</label><br>
+                        <textarea cols="43" rows="10" id="mensagem"></textarea><br>
+                    </div>
+                    <input type="button" value="ENVIAR" id="btn">
+                </form>
+                <div id="resposta"></div>
+            </div>
+            
+        </article>
+        <footer id="rodape">
+            <a href=""><img src="logo.png" alt="logo"></a>
+            <div class="redes">
+                <i class="fab fa-facebook-f"></i>
+                <i class="fab fa-instagram"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-youtube"></i>
+            <div>  
+        </footer>
+        <div id="copy">
+            <p>Todos os direitos reservados</p>
+        </div>
+    </div>
+
+    <script>
+        function enviarDados(){
+            let nome = document.getElementById("nome")
+            let email = document.getElementById("email")
+            let cpf = document.getElementById("cpf")
+            let cep = document.getElementById("cep")
+            let rua = document.getElementById("rua")
+            let bairro = document.getElementById("bairro")
+            let numero = document.getElementById("numero")
+            let cidade = document.getElementById("cidade")
+            let uf = document.getElementById("uf")
+            let complemento = document.getElementById("complemento")
+            let telefone = document.getElementById("telefone")
+            let prato = document.getElementById("prato")
+            let mensagem = document.getElementById("mensagem")
+
+            let msgError = ''
+            if(nome.value.trim() == ""){
+                msgError += "Preencha o campo nome<br>"
+                nome.style.border = '1px solid #f00'
+            }else{
+                nome.style.border = '1px solid #000'
+            }
+
+            if(email.value.trim() == ""){
+                msgError += "Preencha o campo email<br>"
+                email.style.border = '1px solid #f00'
+            }else{
+                email.style.border = '1px solid #000'
+            }
+
+            if(cpf.value.trim() == ""){
+                msgError += "Preencha o campo cpf<br>"
+                cpf.style.border = '1px solid #f00'
+            }else{
+                cpf.style.border = '1px solid #000'
+            }
+
+            if(cep.value.trim() == ""){
+                msgError += "Preencha o campo cep<br>"
+                cep.style.border = '1px solid #f00'
+            }else{
+                cep.style.border = '1px solid #000'
+            }
+
+            if(rua.value.trim() == ""){
+                msgError += "Preencha o campo rua<br>"
+                rua.style.border = '1px solid #f00'
+            }else{
+                rua.style.border = '1px solid #000'
+            }
+
+            if(bairro.value.trim() == ""){
+                msgError += "Preencha o campo bairro<br>"
+                bairro.style.border = '1px solid #f00'
+            }else{
+                bairro.style.border = '1px solid #000'
+            }
+
+            if(numero.value.trim() == ""){
+                msgError += "Preencha o campo numero<br>"
+                numero.style.border = '1px solid #f00'
+            }else{
+                numero.style.border = '1px solid #000'
+            }
+
+            if(cidade.value.trim() == ""){
+                msgError += "Preencha o campo cidade<br>"
+                cidade.style.border = '1px solid #f00'
+            }else{
+                cidade.style.border = '1px solid #000'
+            }
+
+            if(uf.value.trim() == ""){
+                msgError += "Preencha o campo uf<br>"
+                uf.style.border = '1px solid #f00'
+            }else{
+                uf.style.border = '1px solid #000'
+            }
+
+            if(complemento.value.trim() == ""){
+                msgError += "Preencha o campo complemento<br>"
+                complemento.style.border = '1px solid #f00'
+            }else{
+                complemento.style.border = '1px solid #000'
+            }
+
+            if(telefone.value.trim() == ""){
+                msgError += "Preencha o campo telefone<br>"
+                telefone.style.border = '1px solid #f00'
+            }else{
+                telefone.style.border = '1px solid #000'
+            }
+
+            if(prato.value.trim() == ""){
+                msgError += "Preencha o campo prato do dia<br>"
+                prato.style.border = '1px solid #f00'
+            }else{
+                prato.style.border = '1px solid #000'
+            }
+
+            if(mensagem.value.trim() == ""){
+                msgError += "Preencha o campo mensagem<br>"
+                mensagem.style.border = '1px solid #f00'
+            }else{
+                mensagem.style.border = '1px solid #000'
+            }
+
+            if(msgError != ''){
+                document.getElementById("resposta").innerHTML = msgError
+            }else{
+                document.getElementById("resposta").innerHTML = ''
+                alert("Dados enviados com sucesso")
+            }
+        }
+
+        document.getElementById("btn").addEventListener("click", enviarDados)
+
+    </script>
+
+    <script>
+        const format = (field, event) => {
+            if(event.keyCode == 8) return ;
+
+            let key = event.key
+
+            let mask = field.getAttribute("data-mask")
+            let value = field.value
+            let tamString = value.length
+
+            let keyMask = mask.charAt(tamString)
+            if(keyMask == "" || keyMask == null){
+                event.preventDefault()
+                return ;
+            }
+
+            switch(keyMask){
+                case '9':
+                    var regex = new RegExp("\\d")
+                    if(!regex.test(key)){
+                        event.preventDefault()
+                        return ;
+                    }
+                    break;
+                case 'A':
+                    var regex = new RegExp("[a-z]", "i")
+                    if(!regex.test(key)){
+                        event.preventDefault()
+                        return ;
+                    }
+                    break;
+                default :
+                    field.value = field.value + keyMask;
+                    format(field, event)
+            }
+        }
+
+        document.querySelectorAll("[data-mask]").forEach((field) => {
+            field.addEventListener("keydown", (event) => {
+                format(field, event)
+            })
+        })
+    </script>
+
+<script>
+    
+    function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");
+    }
+
+    function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+        }
+    }
+        
+    function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+            }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+        }
+    };
+
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let prato = localStorage.getItem("dbprato")
+            if(prato != null){
+                document.getElementById("aviso").innerHTML = `${prato}, foi seu último pedido...`
+            }
+        })
+
+        document.getElementById("prato").addEventListener("blur", (event) => {
+            let valor = event.target.value
+            localStorage.setItem("dbprato", valor)
+            document.getElementById("aviso").innerHTML = `${valor}, foi seu último pedido...`
+        })
+    </script>
+
+</body>
+</html>
