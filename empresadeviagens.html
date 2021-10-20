@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa de viagens</title>
+    <link rel="stylesheet" href="estiloviagens.css">
+</head>
+<body>
+    <div class="container">
+        <header id="topo">
+            <img src="logo.png" alt="logo">
+        </header>
+            <article id="formulario">
+                <p class="menor">Cadastre-se e aproveite a promoção:</p>
+                <div class="formulario">
+                    <form action="">
+                        <div>
+                            <input type="text" name="" id="nome" placeholder="Seu nome">
+                        </div>
+                        <div>
+                            <input type="email" name="" id="email" placeholder="Email">
+                        </div>
+                        <div>
+                            <input type="text" name="" id="telefone" placeholder="Telefone com ddd" data-mask="(99)99999-9999">
+                        </div>
+                        <div>
+                            <input placeholder="Data de inicio" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                        </div>
+                        <div>
+                            <input placeholder="Data fim" class="textbox-n" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" />
+                        </div>
+                        <div>
+                            <select name="select" id="estado">
+                                <option value="Estado de destino" selected>Estado de destino</option>
+                                <option value="Acre">Acre</option>
+                                <option value="Alagoas">Alagoas</option>
+                                <option value="Amapá">Amapá</option>
+                                <option value="Amazonas">Amazonas</option>
+                                <option value="Bahia">Bahia</option>
+                                <option value="Ceará">Ceará</option>
+                                <option value="Espírito Santo">Espírito Santo</option>
+                                <option value="Goiás">Goiás</option>
+                                <option value="Maranhão">Maranhão</option>
+                                <option value="Mato Grosso">Mato Grosso</option>
+                                <option value="Mato Grosso do Sul">Mato Grosso do Sul</option>
+                                <option value="Minas Gerais">Minas Gerais</option>
+                                <option value="Pará">Pará</option>
+                                <option value="Paraíba">Paraíba</option>
+                                <option value="Paraná">Paraná</option>
+                                <option value="Pernambuco">Pernambuco</option>
+                                <option value="Piauí">Piauí</option>
+                                <option value="Rio de Janeiro">Rio de Janeiro</option>
+                                <option value="Rio Grande do Norte">Rio Grande do Norte</option>
+                                <option value="Rio Grande do Sul">Rio Grande do Sul</option>
+                                <option value="Rondônia">Rondônia</option>
+                                <option value="Roraima">Roraima</option>
+                                <option value="Santa Catarina">Santa Catarina</option>
+                                <option value="São Paulo">São Paulo</option>
+                                <option value="Sergipe">Sergipe</option>
+                                <option value="Tocantins">Tocantins</option>
+                              </select>
+                        </div>
+                        <input type="button" value="Aproveitar promoção" id="btn">
+                    </form>
+                <div id="resposta"></div>
+            </div>
+        </article>
+                <header id="primeiro">
+                    <p class="maior">JÁ PENSOU EM VIAJAR E AINDA ECONOMIZAR UMA GRANA?</p>
+                </header>
+                <header id="segundo">
+                    <p class="maior">VIAJE PARA QUALQUER LUGAR DO BRASIL COM 25% DE DESCONTO NO COMBO:</p>
+                    <p class="menor">Passagem + Hospedagem + Aluguel de carro</p>
+                </header>
+    <article id="imagens">
+        <p class="menor">Os lugares mais bonitos do Brasil estão a um click de distância de você</p>
+        <div class="imagens">
+            <img src="imagem1.jpg" alt="imagem1">
+            <img src="imagem2.jpg" alt="imagem2">
+            <img src="imagem3.jpg" alt="imagem3">
+            <img src="imagem4.jpg" alt="imagem4">
+            <img src="imagem5.jpg" alt="imagem5">
+            <img src="imagem6.jpg" alt="imagem6">
+        </div>
+    </article>
+    <footer id="rodape">
+        <p class="menor">Não perca tempo, preencha o formulário e aproveite a promoção.</p>
+    </footer>
+    </div>
+
+    <script>
+        function enviarDados(){
+            let nome = document.getElementById("nome")
+            let email = document.getElementById("email")
+            let telefone = document.getElementById("telefone")
+            let datainicio = document.getElementById("datainicio")
+            let datafim = document.getElementById("datafim")
+            let estado = document.getElementById("estado")
+            let mensagem = document.getElementById("mensagem")
+
+            let msgError = ''
+            if(nome.value.trim() == ""){
+                msgError += "Preencha o campo nome<br>"
+                nome.style.border = '1px solid #f00'
+            }else{
+                nome.style.border = '1px solid #000'
+            }
+
+            if(email.value.trim() == ""){
+                msgError += "Preencha o campo email<br>"
+                email.style.border = '1px solid #f00'
+            }else{
+                email.style.border = '1px solid #000'
+            }
+
+            if(telefone.value.trim() == ""){
+                msgError += "Preencha o campo telefone<br>"
+                telefone.style.border = '1px solid #f00'
+            }else{
+                telefone.style.border = '1px solid #000'
+            }
+
+            if(datainicio.value.trim() == ""){
+                msgError += "Preencha o campo data inicio<br>"
+                datainicio.style.border = '1px solid #f00'
+            }else{
+                datainicio.style.border = '1px solid #000'
+            }
+
+            if(datafim.value.trim() == ""){
+                msgError += "Preencha o campo data fim<br>"
+                datafim.style.border = '1px solid #f00'
+            }else{
+                datafim.style.border = '1px solid #000'
+            }
+
+            if(estado.value.trim() == ""){
+                msgError += "Preencha o campo estado de destino<br>"
+                estado.style.border = '1px solid #f00'
+            }else{
+                estado.style.border = '1px solid #000'
+            }
+
+            if(mensagem.value.trim() == ""){
+                msgError += "Preencha o campo mensagem<br>"
+                mensagem.style.border = '1px solid #f00'
+            }else{
+                mensagem.style.border = '1px solid #000'
+            }
+
+            if(msgError != ''){
+                document.getElementById("resposta").innerHTML = msgError
+            }else{
+                document.getElementById("resposta").innerHTML = ''
+                alert("Dados enviados com sucesso")
+            }
+        }
+
+        document.getElementById("btn").addEventListener("click", enviarDados)
+    </script>
+
+<script>
+    const format = (field, event) => {
+        if(event.keyCode == 8) return ;
+
+        let key = event.key
+
+        let mask = field.getAttribute("data-mask")
+        let value = field.value
+        let tamString = value.length
+
+        let keyMask = mask.charAt(tamString)
+        if(keyMask == "" || keyMask == null){
+            event.preventDefault()
+            return ;
+        }
+
+        switch(keyMask){
+            case '9':
+                var regex = new RegExp("\\d")
+                if(!regex.test(key)){
+                    event.preventDefault()
+                    return ;
+                }
+                break;
+            case 'A':
+                var regex = new RegExp("[a-z]", "i")
+                if(!regex.test(key)){
+                    event.preventDefault()
+                    return ;
+                }
+                break;
+            default :
+                field.value = field.value + keyMask;
+                format(field, event)
+        }
+    }
+
+    document.querySelectorAll("[data-mask]").forEach((field) => {
+        field.addEventListener("keydown", (event) => {
+            format(field, event)
+        })
+    })
+</script>
+
+</body>
+</html>

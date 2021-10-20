@@ -1,0 +1,182 @@
+@import url('reset.css');
+
+    * {
+        box-sizing: border-box;
+    }
+    body{
+        background-color: white;
+        background-size: cover;
+    }
+    .container{
+        margin: 0;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    #topo{
+        height: 5rem;
+        text-align: left;
+        color: white;
+        width: 70%;
+        margin: 0 auto;
+    }
+    #topo img{
+        height: 5rem;
+    }
+    #primeiro{
+        background: #FFFFFF url("imagem6.png") no-repeat center bottom fixed;
+        background-size: cover;
+        width: 100%;
+        height: auto;
+        padding: 2rem;
+        text-align: center;
+        line-height: 6rem;
+    }
+    #primeiro .maior{
+        font-size: 4rem;
+        color: white;
+        font-weight: bold;
+    }
+    #segundo{
+        width: 70%;
+        height: auto;
+        padding: 1rem;
+        text-align: center;
+        line-height: 6rem;
+        margin: 0 auto;
+    }
+    #segundo .maior{
+        font-size: 4rem;
+        color: black;
+        font-weight: bold;
+    }
+    #segundo .menor{
+        font-size: 2.5rem;
+        color: white;
+        font-weight: bold;
+        background-color: black;
+        width: 100%;
+    }
+    #formulario{
+        width: 100%;
+        height: 7rem;
+        padding: 1rem 0;
+        margin: 0 auto;
+    }
+    #formulario .menor{
+        font-size: 1rem;
+        color: black;
+        font-weight: bold;
+        text-align: center;
+    }
+    #formulario .formulario{
+        font-size: 1.5rem;
+        color: black;
+        line-height: 1rem;
+        padding: 1rem;
+        margin: 0 auto;
+    }
+    #formulario .formulario input, select{
+        width: 14.28%;
+        padding: 5px;
+        float:left;
+        height: 3rem;
+    }
+    #formulario .formulario #btn{
+        background-color: #047244;
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        border: none;
+    }
+    #formulario .formulario #btn:hover{
+        background-color: rgb(80, 194, 240);
+        cursor: pointer;
+    }
+    #formulario .formulario #resposta{
+        font-size: 1rem;
+        color: red;
+    }
+    #imagens{
+        margin-top: 1rem;
+        border-radius: 15px;
+        background-color: white;
+        padding: 10px;
+    }
+    #imagens .menor{
+        padding: 1rem;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        line-height: 2rem;
+        font-weight: bold;
+        color: black;
+        font-size: 1.5rem;
+    }
+    #imagens .imagens img{
+        width: 100%;
+        border-radius: 5px;
+        margin: 5px auto;
+    }
+    #rodape .menor{
+        padding: 1rem;
+        width: 100%;
+        height: auto;
+        text-align: center;
+        line-height: 3rem;
+        font-weight: bold;
+        color: black;
+        font-size: 2rem;
+    }
+
+    @media screen and (min-width: 930px){
+        #imagens{
+            padding: 10px;
+        }
+        #imagens .imagens img{
+            width: calc(33.33% - 14px);
+            height: 300px;
+            margin: 5px;
+        }
+    }
+    @media screen and (max-width: 1220px){
+        #formulario .formulario input, select{
+            width: 33%;
+        }
+        #formulario{
+            height: 13rem;
+            text-align: center;
+            width: 90%;
+            margin: 0 auto;
+        }
+        #formulario .formulario #btn{
+            font-size: 0.7rem;
+        }
+        #primeiro{
+            line-height: 4rem;
+        }
+        #segundo{
+            line-height: 4rem;
+        }
+        #primeiro .maior{
+            font-size: 3rem;
+        }
+        #segundo .maior{
+            font-size: 3rem;
+        }
+    }
+    @media screen and (min-width: 1720px){
+        #formulario{
+            width: 70%;
+        }
+        #primeiro{
+            line-height: 6rem;
+        }
+        #segundo{
+            line-height: 5rem;
+        }
+        #primeiro .maior{
+            font-size: 5rem;
+        }
+        #segundo .maior{
+            font-size: 4rem;
+        }
+    }
